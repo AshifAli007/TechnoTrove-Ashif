@@ -1,5 +1,5 @@
 import resume from '../assets/pdf/resume.pdf'
-import photo from '../assets/photo1.jpeg'
+import photo from '../assets/photo.png'
 
 export const headerData = {
     name: 'MohammadAshif',
