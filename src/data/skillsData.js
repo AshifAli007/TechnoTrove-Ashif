@@ -1,12 +1,27 @@
  export const skillsData = [
+    'CSS',
     'HTML',
-    'Fastify',
-    'Blender',
+    'Node JS',
+    'React',
     'Figma',
     'Javascript',
-    'CSS',
-    'React',
     'Django',
+    'GCP',
+    'Docker',
+    'Azure',
+    'MongoDB',
+    'Selenium',
+    'MaterialUI',
+    'Bootstrap',
+    'Nginx',
+    'Tailwind',
+    'WolframAlpha',
+    'Numpy',
+    'OpenCV',
+    'Pytorch',
+    'C++',
+    'python',
+
  ]
 // Choose your skills from below. Make sure it's in the same format and spelled correctly.
 // Couldn't find the required skills? Raise an issue on github at https://github.com/hhhrrrttt222111/developer-portfolio/issues/new

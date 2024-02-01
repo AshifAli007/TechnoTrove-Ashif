@@ -11,9 +11,9 @@ import eight from '../assets/svg/projects/eight.svg'
 export const projectsData = [
     {
         id: 1,
-        projectName: 'Employee Management',
-        projectDesc: 'This project aims to build an employee management system that consolidates all information of a company',
-        tags: ['React', 'CSS', 'Material Ui'],
+        projectName: 'Federated Learning (HetroFL)',
+        projectDesc: "HeteroFL enables the training of diverse local models with varying computation complexities while achieving efficient computation and communication",
+        tags: ['AI Model Training', 'Computer Vision', 'Edge Computing'],
         code: 'https://github.com/hhhrrrttt222111/developer-portfolio',
         demo: 'https://github.com/hhhrrrttt222111/developer-portfolio',
         image: one
