@@ -1,9 +1,9 @@
 import one from '../assets/svg/projects/particle.svg'
 import two from '../assets/svg/projects/techmarathon.svg'
 import three from '../assets/svg/projects/break.svg'
-import four from '../assets/svg/projects/four.svg'
-import five from '../assets/svg/projects/five.svg'
-import six from '../assets/svg/projects/six.svg'
+import four from '../assets/svg/projects/cosma.svg'
+import five from '../assets/svg/projects/fMusic.svg'
+import six from '../assets/svg/projects/incredible.svg'
 import seven from '../assets/svg/projects/seven.svg'
 import eight from '../assets/svg/projects/eight.svg'
 
@@ -38,29 +38,29 @@ export const projectsData = [
     },
     {
         id: 4,
-        projectName: 'Android Patient Tracker',
-        projectDesc: 'This project involves the development of an Android application for viewing and managing patient data.',
-        tags: ['Flutter', 'Firebase'],
-        // code: 'https://github.com/hhhrrrttt222111/developer-portfolio',
-        // demo: 'https://github.com/hhhrrrttt222111/developer-portfolio',
+        projectName: 'C.O.S.M.A',
+        projectDesc: 'This is something that i always wanted to create i am still working on it to improve its feature and range of control using Bluetooth and WIFI.',
+        tags: ['XML', 'Speech recognition'],
+        code: 'https://github.com/AshifAli007/J.A.R.V.I.S',
+        demo: 'https://youtu.be/cqvnFe9QfHA',
         image: four
     },
     {
         id: 5,
-        projectName: 'E-Commerce App',
-        projectDesc: 'A Simple E-commerce application',
-        tags: ['React Native', 'Firebase'],
-        // code: 'https://github.com/hhhrrrttt222111/developer-portfolio',
-        // demo: 'https://github.com/hhhrrrttt222111/developer-portfolio',
+        projectName: 'F Music',
+        projectDesc: 'A Music Streaming App using Javascript only',
+        tags: ['NodeJS', 'EJS', 'ExpressJS', 'MongoDB'],
+        code: 'https://github.com/AshifAli007/fMusic',
+        demo: 'https://f-music-791bede66a54.herokuapp.com/',
         image: five
     },
     {
         id: 6,
-        projectName: 'Uber Lite',
-        projectDesc: 'Uber clone',
-        tags: ['Flutter'],
-        // code: 'https://github.com/hhhrrrttt222111/developer-portfolio',
-        // demo: 'https://github.com/hhhrrrttt222111/developer-portfolio',
+        projectName: 'Incredible India',
+        projectDesc: 'A platform for campers to see the beauty of India and to book their camping spots.',
+        tags: ['NodeJS', 'EJS'],
+        code: 'https://github.com/AshifAli007/Incredible-India',
+        demo: 'https://incredibleindia-d61c43080530.herokuapp.com/',
         image: six
     },
     {
