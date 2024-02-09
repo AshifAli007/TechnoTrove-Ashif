@@ -1,6 +1,6 @@
-import one from '../assets/svg/projects/one.svg'
-import two from '../assets/svg/projects/two.svg'
-import three from '../assets/svg/projects/three.svg'
+import one from '../assets/svg/projects/particle.svg'
+import two from '../assets/svg/projects/techmarathon.svg'
+import three from '../assets/svg/projects/break.svg'
 import four from '../assets/svg/projects/four.svg'
 import five from '../assets/svg/projects/five.svg'
 import six from '../assets/svg/projects/six.svg'
@@ -11,29 +11,29 @@ import eight from '../assets/svg/projects/eight.svg'
 export const projectsData = [
     {
         id: 1,
-        projectName: 'Federated Learning (HetroFL)',
-        projectDesc: "HeteroFL enables the training of diverse local models with varying computation complexities while achieving efficient computation and communication",
-        tags: ['AI Model Training', 'Computer Vision', 'Edge Computing'],
-        // code: 'https://github.com/hhhrrrttt222111/developer-portfolio',
-        // demo: 'https://github.com/hhhrrrttt222111/developer-portfolio',
+        projectName: 'Particle',
+        projectDesc: "A simple project with CSS and vanilla JS to create a particle effect.",
+        tags: ['SCSS', 'Javascript'],
+        code: 'https://github.com/AshifAli007/TechnoTrove-Ashif',
+        demo: 'https://techmarathon2022.web.app/',
         image: one
     },
     {
         id: 2,
-        projectName: 'Kepler',
-        projectDesc: 'Goal of the project was to create charts and visualizations for big data',
-        tags: ['Django', 'Tailwind CSS'],
-        // code: 'https://github.com/hhhrrrttt222111/developer-portfolio',
-        // demo: 'https://github.com/hhhrrrttt222111/developer-portfolio',
+        projectName: 'Techmarathon',
+        projectDesc: 'Built a platform for the Techmarathon event for our college Annual Event.',
+        tags: ['NodeJS', 'ReactJS', 'MongoDB', 'Firebase'],
+        code: 'https://github.com/AshifAli007/techMarathonFrontend',
+        demo: 'https://techmarathon2022.web.app/',
         image: two
     },
     {
         id: 3,
-        projectName: 'Weather App',
-        projectDesc: 'Weather forecast systems and applications predict weather conditions based on multiple parameters.',
-        tags: ['Django', 'CSS', 'Material Ui'],
-        // code: 'https://github.com/hhhrrrttt222111/developer-portfolio',
-        // demo: 'https://github.com/hhhrrrttt222111/developer-portfolio',
+        projectName: 'Break Through Code',
+        projectDesc: 'This website is for an event in ACM chapter DDUC named Choices this is built using React and deployed at Netlify',
+        tags: ['React', 'Flexbox', 'JQuery', 'Netlify'],
+        code: 'https://github.com/AshifAli007/breakthrucode',
+        demo: 'https://lucid-wozniak-9af02b.netlify.app/event',
         image: three
     },
     {
