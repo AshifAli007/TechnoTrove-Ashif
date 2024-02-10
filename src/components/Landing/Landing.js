@@ -12,8 +12,8 @@ import {
     FaTwitter,
     FaLinkedin,
     FaGithub,
-    FaYoutube,
-    FaBlogger,
+    FaCode,
+    FaCodepen,
 } from 'react-icons/fa';
 
 function Landing() {
@@ -114,26 +114,26 @@ function Landing() {
                                 />
                             </a>
                         )}
-                        {socialsData.youtube && (
+                        {socialsData.leetcode && (
                             <a
-                                href={socialsData.youtube}
+                                href={socialsData.leetcode}
                                 target='_blank'
                                 rel='noreferrer'
                             >
-                                <FaYoutube
+                                <FaCode
                                     className='landing--social'
                                     style={{ color: theme.secondary }}
                                     aria-label='YouTube'
                                 />
                             </a>
                         )}
-                        {socialsData.blogger && (
+                        {socialsData.codepen && (
                             <a
-                                href={socialsData.blogger}
+                                href={socialsData.codepen}
                                 target='_blank'
                                 rel='noreferrer'
                             >
-                                <FaBlogger
+                                <FaCodepen
                                     className='landing--social'
                                     style={{ color: theme.secondary }}
                                     aria-label='Blogger'

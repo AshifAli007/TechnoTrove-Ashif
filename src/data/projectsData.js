@@ -14,8 +14,8 @@ export const projectsData = [
         projectName: 'Particle',
         projectDesc: "A simple project with CSS and vanilla JS to create a particle effect.",
         tags: ['SCSS', 'Javascript'],
-        code: 'https://github.com/AshifAli007/TechnoTrove-Ashif',
-        demo: 'https://techmarathon2022.web.app/',
+        code: 'https://github.com/AshifAli007/particles',
+        demo: 'https://particle-interaction.netlify.app/',
         image: one
     },
     {
