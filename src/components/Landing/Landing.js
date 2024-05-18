@@ -160,7 +160,7 @@ function Landing() {
                         style={{ color: theme.tertiary }}
                     >
                         <h6>{headerData.title}</h6>
-                        <h1>Mohd Ashif</h1>
+                        <h1>Mohammad Ashif</h1>
                         <p>{headerData.desciption}</p>
 
                         <div className='lcr-buttonContainer'>
