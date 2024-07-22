@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
+import "./Copier.scss"
 
 const Copier = () => {
     const [data, setData] = useState('');
     const [receivedData, setReceivedData] = useState('');
-    let server = "wss://copier-ws-production.up.railway.app";
-    // let server = "wss://lean-secret-spruce.glitch.me";
-    // let server = "wss://copier-ws.vercel.app.me";
-    const { sendMessage, lastMessage, readyState } = useWebSocket(server, {
+    const [file, setFile] = useState(null);
+    const [receivedFile, setReceivedFile] = useState('');
+
+    const dataServer = "wss://copier-ws-production.up.railway.app";
+    const fileServer = "wss://lean-secret-spruce.glitch.me";
+
+    const { sendMessage: sendTextMessage, lastMessage, readyState: dataReadyState } = useWebSocket(dataServer, {
+        shouldReconnect: () => true,
+    });
+
+    const { sendMessage: sendFileMessage, lastMessage: lastFileMessage, readyState: fileReadyState } = useWebSocket(fileServer, {
         shouldReconnect: () => true,
     });
 
@@ -25,32 +33,81 @@ const Copier = () => {
         }
     }, [lastMessage]);
 
+    useEffect(() => {
+        if (lastFileMessage !== null) {
+            if (lastFileMessage.data instanceof Blob) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    setReceivedFile(reader.result);
+                };
+                reader.readAsDataURL(lastFileMessage.data);
+            } else {
+                setReceivedFile(lastFileMessage.data);
+            }
+        }
+    }, [lastFileMessage]);
+
     const handleChange = (e) => {
         const value = e.target.value;
         setData(value);
-        sendMessage(value);
+        sendTextMessage(value);
     };
 
-    const connectionStatus = {
+    const handleFileChange = (e) => {
+        const selectedFile = e.target.files[0];
+        setFile(selectedFile);
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            sendFileMessage(event.target.result);
+        };
+        reader.readAsArrayBuffer(selectedFile);
+    };
+
+    const dataConnectionStatus = {
         [ReadyState.CONNECTING]: 'Connecting',
         [ReadyState.OPEN]: 'Open',
         [ReadyState.CLOSING]: 'Closing',
         [ReadyState.CLOSED]: 'Closed',
         [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
-    }[readyState];
+    }[dataReadyState];
+
+    const fileConnectionStatus = {
+        [ReadyState.CONNECTING]: 'Connecting',
+        [ReadyState.OPEN]: 'Open',
+        [ReadyState.CLOSING]: 'Closing',
+        [ReadyState.CLOSED]: 'Closed',
+        [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
+    }[fileReadyState];
 
     return (
-        <div>
-            <h1>Copy Data Page</h1>
-            <textarea
-                value={data}
-                onChange={handleChange}
-                placeholder="Type or paste your data here"
-                rows="10"
-                cols="50"
-            />
-            <p>Received Data: {receivedData}</p>
-            <p>Connection Status: {connectionStatus}</p>
+        <div className='container'>
+            <div className='text-sync'>
+                <textarea
+                    value={data}
+                    onChange={handleChange}
+                    placeholder="Type or paste your data here"
+                    rows="10"
+                    cols="70"
+                    className='send custom-scrollbar'
+                />
+                <textarea
+                    value={receivedData}
+                    onChange={handleChange}
+                    placeholder="Type or paste your data here"
+                    rows="10"
+                    cols="70"
+                    className='receive custom-scrollbar'
+                />
+            </div>
+            <div className='file-sync'>
+                <input type="file" onChange={handleFileChange} />
+                <p>Received File: {receivedFile ? <a href={receivedFile} download="received_file">Download</a> : 'No file received'}</p>
+                <p>File Connection Status: {fileConnectionStatus}</p>
+            </div>
+
+
+            {/* <p>Data Connection Status: {dataConnectionStatus}</p> */}
+
         </div>
     );
 };
