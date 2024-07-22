@@ -9687,6 +9687,11 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
+"react-use-websocket@^4.8.1":
+  "integrity" "sha512-FTXuG5O+LFozmu1BRfrzl7UIQngECvGJmL7BHsK4TYXuVt+mCizVA8lT0hGSIF0Z0TedF7bOo1nRzOUdginhDw=="
+  "resolved" "https://registry.npmjs.org/react-use-websocket/-/react-use-websocket-4.8.1.tgz"
+  "version" "4.8.1"
+
 "react@^17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
@@ -12039,9 +12044,14 @@
     "async-limiter" "~1.0.0"
 
 "ws@^7.4.6":
-  "integrity" "sha512-BAkMFcAzl8as1G/hArkxOxq3G7pjUqQ3gzYbLL0/5zNkph70e+lCoxBGnm6AW1+/aiNeV4fnKqZ8m4GZewmH2w=="
-  "resolved" "https://registry.npmjs.org/ws/-/ws-7.5.5.tgz"
-  "version" "7.5.5"
+  "integrity" "sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ=="
+  "resolved" "https://registry.npmjs.org/ws/-/ws-7.5.10.tgz"
+  "version" "7.5.10"
+
+"ws@^8.18.0":
+  "integrity" "sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw=="
+  "resolved" "https://registry.npmjs.org/ws/-/ws-8.18.0.tgz"
+  "version" "8.18.0"
 
 "xml-name-validator@^3.0.0":
   "integrity" "sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw=="
