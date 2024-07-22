@@ -4,10 +4,11 @@ import useWebSocket, { ReadyState } from 'react-use-websocket';
 const Copier = () => {
     const [data, setData] = useState('');
     const [receivedData, setReceivedData] = useState('');
-
-    const { sendMessage, lastMessage, readyState } = useWebSocket('wss://lean-secret-spruce.glitch.me', {
+    let server = "wss://copier-ws-production.up.railway.app";
+    // let server = "wss://lean-secret-spruce.glitch.me";
+    // let server = "wss://copier-ws.vercel.app.me";
+    const { sendMessage, lastMessage, readyState } = useWebSocket(server, {
         shouldReconnect: () => true,
-
     });
 
     useEffect(() => {
