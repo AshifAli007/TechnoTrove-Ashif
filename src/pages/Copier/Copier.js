@@ -5,13 +5,14 @@ import "./Copier.scss"
 const Copier = () => {
     const [data, setData] = useState('');
     const [receivedData, setReceivedData] = useState('');
-    const [file, setFile] = useState(null);
+    // const [file, setFile] = useState(null);
     const [receivedFile, setReceivedFile] = useState('');
 
     const dataServer = "wss://copier-ws-production.up.railway.app";
     const fileServer = "wss://lean-secret-spruce.glitch.me";
 
-    const { sendMessage: sendTextMessage, lastMessage, readyState: dataReadyState } = useWebSocket(dataServer, {
+    // const { sendMessage: sendTextMessage, lastMessage, readyState: dataReadyState } = useWebSocket(dataServer, {
+    const { sendMessage: sendTextMessage, lastMessage } = useWebSocket(dataServer, {
         shouldReconnect: () => true,
     });
 
