@@ -55,7 +55,7 @@ const Copier = () => {
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
-        setFile(selectedFile);
+        // setFile(selectedFile);
         const reader = new FileReader();
         reader.onload = (event) => {
             sendFileMessage(event.target.result);
@@ -63,13 +63,13 @@ const Copier = () => {
         reader.readAsArrayBuffer(selectedFile);
     };
 
-    const dataConnectionStatus = {
-        [ReadyState.CONNECTING]: 'Connecting',
-        [ReadyState.OPEN]: 'Open',
-        [ReadyState.CLOSING]: 'Closing',
-        [ReadyState.CLOSED]: 'Closed',
-        [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
-    }[dataReadyState];
+    // const dataConnectionStatus = {
+    //     [ReadyState.CONNECTING]: 'Connecting',
+    //     [ReadyState.OPEN]: 'Open',
+    //     [ReadyState.CLOSING]: 'Closing',
+    //     [ReadyState.CLOSED]: 'Closed',
+    //     [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
+    // }[dataReadyState];
 
     const fileConnectionStatus = {
         [ReadyState.CONNECTING]: 'Connecting',
