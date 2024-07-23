@@ -114,7 +114,7 @@ const Copier = () => {
                 <textarea
                     value={data}
                     onChange={handleChange}
-                    placeholder="Type or paste your data here"
+                    placeholder="Send data using this textbox only"
                     rows="10"
                     cols="60"
                     className='send custom-scrollbar'
@@ -123,7 +123,7 @@ const Copier = () => {
                     <textarea
                         value={receivedData}
                         onChange={handleChange}
-                        placeholder="Type or paste your data here"
+                        placeholder="Use this box to recieve data and copying only"
                         rows="10"
                         cols="60"
                         className='receive custom-scrollbar'
