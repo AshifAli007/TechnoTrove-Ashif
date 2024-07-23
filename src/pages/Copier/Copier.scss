@@ -30,6 +30,17 @@
     justify-content: center;
     align-items: center;
 }
+input[type="file"] {
+    display: none;
+  }
+.dragndrop{
+    height: 200px;
+    width: 500px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
 
 
 /* Hide scrollbar for Chrome, Safari, and Opera */

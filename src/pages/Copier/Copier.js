@@ -101,13 +101,22 @@ const Copier = () => {
                 />
             </div>
             <div className='file-sync'>
-                <input type="file" onChange={handleFileChange} />
+                <label for="file-upload" class="dragndrop">
+                    Custom Upload
+                </label>
+                <input id="file-upload" type="file" onChange={handleFileChange} />
+
+                {console.log(receivedFile, 'fdfd')}
                 <p>Received File: {receivedFile ? <a href={receivedFile} download="received_file">Download</a> : 'No file received'}</p>
                 <p>File Connection Status: {fileConnectionStatus}</p>
             </div>
 
 
             {/* <p>Data Connection Status: {dataConnectionStatus}</p> */}
+            {/* <div {...getRootProps({className: 'dropzone'})}>
+                <input {...getInputProps()} />
+                <p>Drag 'n' drop some files here, or click to select files</p>
+            </div> */}
 
         </div>
     );
