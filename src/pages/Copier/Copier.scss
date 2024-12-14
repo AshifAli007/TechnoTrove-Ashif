@@ -34,14 +34,14 @@
         height: 100%;
         background-color: #F0F0F0;
         border: dashed 1px rgb(162, 162, 162);
-        .upload-icon{
-            color: grey;
-        }
         cursor: pointer;
         display: flex;
         flex-flow: column;
         align-items: center;
         justify-content: center;
+        .upload-icon{
+            color: grey;
+        }
         .dropzone{
             width: 100%;
             height: 90%;
