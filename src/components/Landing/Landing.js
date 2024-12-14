@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
-import { Button } from '@material-ui/core';
+import React from 'react';
+import { Button } from '@mui/material';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
-import { makeStyles } from '@material-ui/core/styles';
 
 import './Landing.css';
-import { ThemeContext } from '../../contexts/ThemeContext';
 import { headerData } from '../../data/headerData';
 import { socialsData } from '../../data/socialsData';
 
@@ -17,126 +15,53 @@ import {
 } from 'react-icons/fa';
 
 function Landing() {
-    const { theme, drawerOpen } = useContext(ThemeContext);
-
-    const useStyles = makeStyles((t) => ({
-        resumeBtn: {
-            color: theme.primary,
-            borderRadius: '30px',
-            textTransform: 'inherit',
-            textDecoration: 'none',
-            width: '150px',
-            fontSize: '1rem',
-            fontWeight: '500',
-            height: '50px',
-            fontFamily: 'var(--primaryFont)',
-            border: `3px solid ${theme.primary}`,
-            transition: '100ms ease-out',
-            '&:hover': {
-                backgroundColor: theme.tertiary,
-                color: theme.secondary,
-                border: `3px solid ${theme.tertiary}`,
-            },
-            [t.breakpoints.down('sm')]: {
-                width: '180px',
-            },
-        },
-        contactBtn: {
-            backgroundColor: theme.primary,
-            color: theme.secondary,
-            borderRadius: '30px',
-            textTransform: 'inherit',
-            textDecoration: 'none',
-            width: '150px',
-            height: '50px',
-            fontSize: '1rem',
-            fontWeight: '500',
-            fontFamily: 'var(--primaryFont)',
-            border: `3px solid ${theme.primary}`,
-            transition: '100ms ease-out',
-            '&:hover': {
-                backgroundColor: theme.secondary,
-                color: theme.tertiary,
-                border: `3px solid ${theme.tertiary}`,
-            },
-            [t.breakpoints.down('sm')]: {
-                display: 'none',
-            },
-        },
-    }));
-
-    const classes = useStyles();
-
     return (
         <div className='landing'>
             <div className='landing--container'>
-                <div
-                    className='landing--container-left'
-                    style={{ backgroundColor: theme.primary }}
-                >
+                <div className='landing--container-left' style={{ backgroundColor: '#3fc337' }}>
                     <div className='lcl--content'>
                         {socialsData.linkedIn && (
-                            <a
-                                href={socialsData.linkedIn}
-                                target='_blank'
-                                rel='noreferrer'
-                            >
+                            <a href={socialsData.linkedIn} target='_blank' rel='noreferrer'>
                                 <FaLinkedin
                                     className='landing--social'
-                                    style={{ color: theme.secondary }}
+                                    style={{ color: '#EAEAEA' }}
                                     aria-label='LinkedIn'
                                 />
                             </a>
                         )}
                         {socialsData.github && (
-                            <a
-                                href={socialsData.github}
-                                target='_blank'
-                                rel='noreferrer'
-                            >
+                            <a href={socialsData.github} target='_blank' rel='noreferrer'>
                                 <FaGithub
                                     className='landing--social'
-                                    style={{ color: theme.secondary }}
+                                    style={{ color: '#EAEAEA' }}
                                     aria-label='GitHub'
                                 />
                             </a>
                         )}
                         {socialsData.twitter && (
-                            <a
-                                href={socialsData.twitter}
-                                target='_blank'
-                                rel='noreferrer'
-                            >
+                            <a href={socialsData.twitter} target='_blank' rel='noreferrer'>
                                 <FaTwitter
                                     className='landing--social'
-                                    style={{ color: theme.secondary }}
+                                    style={{ color: '#EAEAEA' }}
                                     aria-label='Twitter'
                                 />
                             </a>
                         )}
                         {socialsData.leetcode && (
-                            <a
-                                href={socialsData.leetcode}
-                                target='_blank'
-                                rel='noreferrer'
-                            >
+                            <a href={socialsData.leetcode} target='_blank' rel='noreferrer'>
                                 <FaCode
                                     className='landing--social'
-                                    style={{ color: theme.secondary }}
-                                    aria-label='YouTube'
+                                    style={{ color: '#EAEAEA' }}
+                                    aria-label='LeetCode'
                                 />
                             </a>
                         )}
                         {socialsData.codepen && (
-                            <a
-                                href={socialsData.codepen}
-                                target='_blank'
-                                rel='noreferrer'
-                            >
+                            <a href={socialsData.codepen} target='_blank' rel='noreferrer'>
                                 <FaCodepen
                                     className='landing--social'
-                                    style={{ color: theme.secondary }}
-                                    aria-label='Blogger'
+                                    style={{ color: '#EAEAEA' }}
+                                    aria-label='CodePen'
                                 />
                             </a>
                         )}
@@ -147,18 +72,12 @@ function Landing() {
                     alt=''
                     className='landing--img'
                     style={{
-                        opacity: `${drawerOpen ? '0' : '1'}`,
-                        borderColor: theme.secondary,
+                        opacity: '1',
+                        borderColor: '#EAEAEA',
                     }}
                 />
-                <div
-                    className='landing--container-right'
-                    style={{ backgroundColor: theme.secondary }}
-                >
-                    <div
-                        className='lcr--content'
-                        style={{ color: theme.tertiary }}
-                    >
+                <div className='landing--container-right' style={{ backgroundColor: '#EAEAEA' }}>
+                    <div className='lcr--content' style={{ color: '#212121' }}>
                         <h6>{headerData.title}</h6>
                         <h1>Mohammad Ashif</h1>
                         <p>{headerData.desciption}</p>
@@ -171,7 +90,21 @@ function Landing() {
                                     target='_blank'
                                     rel='noreferrer'
                                 >
-                                    <Button className={classes.resumeBtn}>
+                                    <Button
+                                        style={{
+                                            color: '#3fc337',
+                                            borderRadius: '30px',
+                                            textTransform: 'inherit',
+                                            textDecoration: 'none',
+                                            width: '150px',
+                                            fontSize: '1rem',
+                                            fontWeight: '500',
+                                            height: '50px',
+                                            fontFamily: 'Arial, sans-serif',
+                                            border: '3px solid #3fc337',
+                                            transition: '100ms ease-out',
+                                        }}
+                                    >
                                         Download CV
                                     </Button>
                                 </a>
@@ -179,10 +112,26 @@ function Landing() {
                             <NavLink
                                 to='/#contacts'
                                 smooth={true}
-                                spy='true'
+                                spy={true}
                                 duration={2000}
+                                className='contact-button'
                             >
-                                <Button className={classes.contactBtn}>
+                                <Button
+                                    style={{
+                                        backgroundColor: '#3fc337',
+                                        color: '#EAEAEA',
+                                        borderRadius: '30px',
+                                        textTransform: 'inherit',
+                                        textDecoration: 'none',
+                                        width: '150px',
+                                        height: '50px',
+                                        fontSize: '1rem',
+                                        fontWeight: '500',
+                                        fontFamily: 'Arial, sans-serif',
+                                        border: '3px solid #3fc337',
+                                        transition: '100ms ease-out',
+                                    }}
+                                >
                                     Contact
                                 </Button>
                             </NavLink>

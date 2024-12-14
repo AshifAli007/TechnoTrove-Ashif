@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import Fade from 'react-reveal/Fade';
 import { IoMenuSharp, IoHomeSharp } from 'react-icons/io5';
@@ -6,38 +6,33 @@ import { HiDocumentText } from 'react-icons/hi';
 import { BsFillGearFill } from 'react-icons/bs';
 import { MdPhone } from 'react-icons/md';
 import { FaUser, FaFolderOpen } from 'react-icons/fa';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CloseIcon from '@material-ui/icons/Close';
+import { makeStyles } from '@mui/styles';
+import Drawer from '@mui/material/Drawer';
+import CloseIcon from '@mui/icons-material/Close';
 
 import './Navbar.css';
 import { headerData } from '../../data/headerData';
-import { ThemeContext } from '../../contexts/ThemeContext';
 
 function Navbar() {
-    const { theme, setHandleDrawer } = useContext(ThemeContext);
-
     const [open, setOpen] = useState(false);
 
     const handleDrawerOpen = () => {
         setOpen(true);
-        setHandleDrawer();
     };
 
     const handleDrawerClose = () => {
         setOpen(false);
-        setHandleDrawer();
     };
 
     const useStyles = makeStyles((t) => ({
         navMenu: {
             fontSize: '2.5rem',
-            color: theme.tertiary,
+            color: '#212121',
             cursor: 'pointer',
             transform: 'translateY(-10px)',
             transition: 'color 0.3s',
             '&:hover': {
-                color: theme.primary,
+                color: '#3fc337',
             },
             [t.breakpoints.down('sm')]: {
                 fontSize: '2.5rem',
@@ -49,11 +44,11 @@ function Navbar() {
         MuiDrawer: {
             padding: '0em 1.8em',
             width: '14em',
-            fontFamily: ' var(--primaryFont)',
-            fontStyle: ' normal',
-            fontWeight: ' normal',
-            fontSize: ' 24px',
-            background: theme.secondary,
+            fontFamily: 'Arial, sans-serif',
+            fontStyle: 'normal',
+            fontWeight: 'normal',
+            fontSize: '24px',
+            background: '#EAEAEA',
             overflow: 'hidden',
             borderTopRightRadius: '40px',
             borderBottomRightRadius: '40px',
@@ -65,13 +60,13 @@ function Navbar() {
             fontSize: '2rem',
             fontWeight: 'bold',
             cursor: 'pointer',
-            color: theme.primary,
+            color: '#3fc337',
             position: 'absolute',
             right: 40,
             top: 40,
             transition: 'color 0.2s',
             '&:hover': {
-                color: theme.tertiary,
+                color: '#212121',
             },
             [t.breakpoints.down('sm')]: {
                 right: 20,
@@ -81,8 +76,8 @@ function Navbar() {
         drawerItem: {
             margin: '2rem auto',
             borderRadius: '78.8418px',
-            background: theme.secondary,
-            color: theme.primary,
+            background: '#EAEAEA',
+            color: '#3fc337',
             width: '85%',
             height: '60px',
             display: 'flex',
@@ -91,11 +86,11 @@ function Navbar() {
             padding: '0 30px',
             boxSizing: 'border-box',
             border: '2px solid',
-            borderColor: theme.primary,
+            borderColor: '#3fc337',
             transition: 'background-color 0.2s, color 0.2s',
             '&:hover': {
-                background: theme.primary,
-                color: theme.secondary,
+                background: '#3fc337',
+                color: '#EAEAEA',
             },
             [t.breakpoints.down('sm')]: {
                 width: '100%',
@@ -104,7 +99,7 @@ function Navbar() {
             },
         },
         drawerLinks: {
-            fontFamily: 'var(--primaryFont)',
+            fontFamily: 'Arial, sans-serif',
             width: '50%',
             fontSize: '1.3rem',
             fontWeight: 600,
@@ -133,9 +128,7 @@ function Navbar() {
     return (
         <div className='navbar'>
             <div className='navbar--container'>
-                <h1 style={{ color: theme.secondary }}>
-                    {shortname(headerData.name)}
-                </h1>
+                <h1 style={{ color: '#EAEAEA' }}>{shortname(headerData.name)}</h1>
 
                 <IoMenuSharp
                     className={classes.navMenu}

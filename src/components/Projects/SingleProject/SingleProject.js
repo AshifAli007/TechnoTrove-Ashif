@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import { FaPlay, FaCode } from 'react-icons/fa';
 import Fade from 'react-reveal/Fade';
 
@@ -50,7 +50,7 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                     </h2>
                     <img src={image ? image : placeholder} alt={name} />
                     <div className='project--showcaseBtn'>
-                    {/* <Link to={`/${demo}`} target='_blank'> */}
+                        {/* <Link to={`/${demo}`} target='_blank'> */}
                         <a
                             href={demo}
                             target='_blank'
@@ -59,8 +59,8 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                             aria-labelledby={`${name
                                 .replace(' ', '-')
                                 .toLowerCase()} ${name
-                                .replace(' ', '-')
-                                .toLowerCase()}-demo`}
+                                    .replace(' ', '-')
+                                    .toLowerCase()}-demo`}
                         >
                             <FaPlay
                                 id={`${name
@@ -79,8 +79,8 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                             aria-labelledby={`${name
                                 .replace(' ', '-')
                                 .toLowerCase()} ${name
-                                .replace(' ', '-')
-                                .toLowerCase()}-code`}
+                                    .replace(' ', '-')
+                                    .toLowerCase()}-code`}
                         >
                             <FaCode
                                 id={`${name
@@ -90,7 +90,7 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                                 aria-label='Code'
                             />
                         </a>
-                      
+
                     </div>
                 </div>
                 <p

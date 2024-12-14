@@ -10,8 +10,10 @@ function ThemeContextProvider(props) {
     const [drawerOpen, setDrawerOpen] = useState(false)
 
     const setHandleDrawer = () => {
-        setDrawerOpen(!drawerOpen)
-    }
+        setDrawerOpen((prev) => !prev);
+        console.log('Drawer Open:', drawerOpen);
+    };
+    
 
 
 
