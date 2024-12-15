@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Draggable Canvas</title>
+    <style>
+        #canvas-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: #f0f0f0;
+        }
+
+        .draggable {
+            position: absolute;
+            cursor: grab;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            user-select: none;
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas-container">
+        <svg id="svg-container">
+            <path id="connect-line" fill="none" stroke="black" stroke-width="2"></path>
+        </svg>
+        <div class="draggable" style="left: 10px; top: 10px;">A</div>
+        <div class="draggable" style="left: 100px; top: 50px;">B</div>
+    </div>
+
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const svgContainer = document.getElementById('svg-container');
+        const connectLine = document.getElementById('connect-line');
+
+        let selectedElement = null;
+        let offset = { x: 0, y: 0 };
+
+        function updatePath() {
+            const x1 = parseFloat(draggables[0].style.left) + draggables[0].offsetWidth / 2;
+            const y1 = parseFloat(draggables[0].style.top) + draggables[0].offsetHeight / 2;
+            const x2 = parseFloat(draggables[1].style.left) + draggables[1].offsetWidth / 2;
+            const y2 = parseFloat(draggables[1].style.top) + draggables[1].offsetHeight / 2;
+
+            connectLine.setAttribute('d', `M${x1},${y1} C${x1 + 100},${y1} ${x2 - 100},${y2} ${x2},${y2}`);
+        }
+
+        function onMouseMove(event) {
+            if (!selectedElement) return;
+
+            const x = event.clientX - offset.x;
+            const y = event.clientY - offset.y;
+
+            selectedElement.style.left = `${x}px`;
+            selectedElement.style.top = `${y}px`;
+
+            updatePath();
+        }
+
+        function onMouseUp() {
+            selectedElement = null;
+        }
+
+        function onMouseDown(event) {
+            selectedElement = event.target;
+            offset.x = event.clientX - parseFloat(selectedElement.style.left);
+            offset.y = event.clientY - parseFloat(selectedElement.style.top);
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp, { once: true });
+        }
+
+        draggables.forEach(el => el.addEventListener('mousedown', onMouseDown));
+
+        updatePath(); // Initial path update
+    </script>
+</body>
+
+</html>
