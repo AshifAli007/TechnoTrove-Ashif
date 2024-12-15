@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gooey Cursor | Random Demo | Codrops</title>
 	<meta name="description" content="A gooey cursor background effect with SVG filters and CSS blend modes." />
@@ -49,18 +49,18 @@
 			if (selectedDemo === 'demo-5') {
 				filterEl.innerHTML = `
                     <feTurbulence type="fractalNoise" baseFrequency="0.1" numOctaves="1" seed="0" result="turbulence" />
-					    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="100" xChannelSelector="R" yChannelSelector="G" result="displacement" />
-					    <feGaussianBlur in="displacement" stdDeviation="5" result="blur" />
-					    <feColorMatrix
-					        in="blur"
-					        mode="matrix"
-					        values="
-					            1 0 0 0 0
-					            0 1 0 0 0
-					            0 0 1 0 0
-					            0 0 0 15 -7"
-					        result="gooey"
-					    />
+                    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="100" xChannelSelector="R" yChannelSelector="G" result="displacement" />
+                    <feGaussianBlur in="displacement" stdDeviation="5" result="blur" />
+                    <feColorMatrix
+                        in="blur"
+                        mode="matrix"
+                        values="
+                            1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                            0 0 0 15 -7"
+                        result="gooey"
+                    />
                 `;
 			} else if (selectedDemo === 'demo-1') {
 				filterEl.innerHTML = `
@@ -85,15 +85,12 @@
 <body>
 	<main>
 		<div class="frame">
-
-			<!-- <a class="frame__prev" href="">Hello</a> -->
 			<nav class="frame__demos">
 				<span class="frame__demos-item">Work </span>
-				<a class="frame__demos-item" href="Ashif_Resume.pdf" download>CV</a>
+				<a class="frame__demos-item" href="index.html">CV</a>
 			</nav>
 		</div>
 		<div class="content">
-			<!-- <h2><i>b</i>yte<i>c</i>raft</h2> -->
 			<h2><i>Moh</i>a<i>m</i>mad <i>As</i><i>hi</i>f</h2>
 			<p>Creating flawless digital experiences with precision &amp; expertise</p>
 		</div>
@@ -114,8 +111,81 @@
 			</defs>
 		</svg>
 	</div>
-	<script src="js/gsap.min.js"></script>
+
+	<!-- Skills Section -->
+	<section id="skills-container">
+		<svg></svg>
+		<div class="skill">
+			<img class="icon" src="./img/skills/html.png" alt="A" />
+			<p class="txt">HTML</p>
+		</div>
+		<div class="skill">B</div>
+		<div class="skill">C</div>
+		<div class="skill">D</div>
+		<div class="skill">E</div>
+		<div class="skill">F</div>
+		<div class="skill">G</div>
+		<div class="skill">H</div>
+		<div class="skill">I</div>
+	</section>
+
+	<!-- Include GSAP library -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/Draggable.min.js"></script>
 	<script type="module" src="js/index.js"></script>
+	<script src="js/gsap.min.js"></script>
+	<script>
+		const skillsContainer = document.getElementById('skills-container');
+		const svg = skillsContainer.querySelector('svg');
+		const skills = skillsContainer.querySelectorAll('.skill');
+		const paths = [];
+
+		function getCenterCoordinates(el) {
+			const rect = el.getBoundingClientRect();
+			const parentRect = skillsContainer.getBoundingClientRect();
+			const centerX = rect.left - parentRect.left + rect.width / 2;
+			const centerY = rect.top - parentRect.top + rect.height / 2;
+			return { centerX, centerY };
+		}
+
+		function createPath(from, to) {
+			const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+			svg.appendChild(path);
+			paths.push({ path, from, to });
+			updatePath(path, from, to);
+		}
+
+		function updatePath(path, from, to) {
+			const { centerX: x1, centerY: y1 } = getCenterCoordinates(from);
+			const { centerX: x2, centerY: y2 } = getCenterCoordinates(to);
+
+			// Adjust control points for a more pronounced curve
+			const controlPointOffset = 100;
+			const cx1 = x1 + 100;
+			const cy1 = y1 + 200;
+			const cx2 = x2 - 100;
+			const cy2 = y2 - 200;
+
+			const d = `M${x1},${y1} C${cx1},${cy1} ${cx2},${cy2} ${x2},${y2}`;
+			path.setAttribute('d', d);
+		}
+
+		function updateAllPaths() {
+			paths.forEach(({ path, from, to }) => updatePath(path, from, to));
+		}
+
+		// Create connections A->B and A->C
+		createPath(skills[0], skills[1]);
+		createPath(skills[0], skills[2]);
+
+		gsap.registerPlugin(Draggable);
+		Draggable.create(skills, {
+			bounds: skillsContainer,
+			onDrag: function () {
+				updateAllPaths();
+			}
+		});
+	</script>
 </body>
 
 </html>
