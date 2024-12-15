@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Draggable Skill Boxes with Accurate Connections</title>
+    <style>
+        body {
+            background: #333;
+            /* Dark background */
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #skills-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skill {
+            width: 100px;
+            height: 100px;
+            background: #444;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: grab;
+        }
+
+        /* Specific positions for each skill box */
+        .skill:nth-child(1) {
+            left: 5%;
+            top: 20%;
+        }
+
+        /* A */
+        .skill:nth-child(2) {
+            left: 20%;
+            top: 10%;
+        }
+
+        /* B */
+        .skill:nth-child(3) {
+            left: 35%;
+            top: 20%;
+        }
+
+        /* C */
+        .skill:nth-child(4) {
+            left: 50%;
+            top: 10%;
+        }
+
+        /* D */
+        .skill:nth-child(5) {
+            left: 65%;
+            top: 20%;
+        }
+
+        /* E */
+        .skill:nth-child(6) {
+            left: 80%;
+            top: 10%;
+        }
+
+        /* F */
+        .skill:nth-child(7) {
+            right: 20%;
+            top: 40%;
+        }
+
+        /* G */
+        .skill:nth-child(8) {
+            right: 5%;
+            top: 30%;
+        }
+
+        /* H */
+        .skill:nth-child(9) {
+            right: 35%;
+            top: 50%;
+        }
+
+        /* I */
+        svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        path {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="skills-container">
+        <svg></svg>
+        <div class="skill">A</div>
+        <div class="skill">B</div>
+        <div class="skill">C</div>
+        <div class="skill">D</div>
+        <div class="skill">E</div>
+        <div class="skill">F</div>
+        <div class="skill">G</div>
+        <div class="skill">H</div>
+        <div class="skill">I</div>
+    </div>
+
+    <!-- Include GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/Draggable.min.js"></script>
+    <script>
+        const skillsContainer = document.getElementById('skills-container');
+        const svg = skillsContainer.querySelector('svg');
+        const skills = skillsContainer.querySelectorAll('.skill');
+        const paths = [];
+
+        function getCenterCoordinates(el) {
+            const rect = el.getBoundingClientRect();
+            const parentRect = skillsContainer.getBoundingClientRect();
+            const centerX = rect.left - parentRect.left + rect.width / 2;
+            const centerY = rect.top - parentRect.top + rect.height / 2;
+            return { centerX, centerY };
+        }
+
+        function createPath(from, to) {
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            svg.appendChild(path);
+            paths.push({ path, from, to });
+            updatePath(path, from, to);
+        }
+
+        function updatePath(path, from, to) {
+            const { centerX: x1, centerY: y1 } = getCenterCoordinates(from);
+            const { centerX: x2, centerY: y2 } = getCenterCoordinates(to);
+
+            // Adjust control points for a more pronounced curve
+            const controlPointOffset = 100;
+            const cx1 = x1 + 100;
+            const cy1 = y1 + 50;
+            const cx2 = x2 - 100;
+            const cy2 = y2 - 50;
+
+            const d = `M${x1},${y1} C${cx1},${cy1} ${cx2},${cy2} ${x2},${y2}`;
+            path.setAttribute('d', d);
+        }
+
+        function updateAllPaths() {
+            paths.forEach(({ path, from, to }) => updatePath(path, from, to));
+        }
+
+        // Create connections A->B and A->C
+        createPath(skills[0], skills[1]);
+        createPath(skills[0], skills[2]);
+
+        gsap.registerPlugin(Draggable);
+        Draggable.create(skills, {
+            bounds: skillsContainer,
+            onDrag: function () {
+                updateAllPaths();
+            }
+        });
+    </script>
+</body>
+
+</html>
