@@ -2,13 +2,13 @@
 import { getMousePos, getWinSize, isFirefox } from './utils.js';
 
 // Initialize mouse position object
-let mousepos = {x: 0, y: 0};
+let mousepos = { x: 0, y: 0 };
 
 // Update 'mousepos' with the current mouse position
 const updateMousePos = ev => {
     mousepos = getMousePos(ev);
 };
-  
+
 // Listen for 'mousemove' and 'pointermove' events and update 'mousepos' accordingly
 window.addEventListener('mousemove', updateMousePos);
 window.addEventListener('pointermove', updateMousePos, { passive: true });
@@ -51,13 +51,13 @@ export class GooCursor {
         this.DOM.inner = this.DOM.el.querySelector('.cursor__inner');
 
         // Too much for firefox...
-        if ( !isFirefox() ) {
+        if (!isFirefox()) {
             this.DOM.inner.style.filter = 'url(#gooey)';
         }
 
         // ttl from data attr
         this.settings.ttl = this.DOM.el.getAttribute('data-ttl') || this.settings.ttl;
-        
+
         // Calculate how many cells to insert into the .cursor__inner element:
         this.layout();
 
@@ -76,7 +76,7 @@ export class GooCursor {
         const handleMove = () => {
             // Check which cell is being "hovered"
             const cell = this.getCellAtCursor();
-          
+
             if (cell === null || this.cachedCell === cell) return;
             // Cache it
             this.cachedCell = cell;
@@ -99,27 +99,27 @@ export class GooCursor {
         // The number of columns is defined in a CSS variable --columns
         this.columns = getComputedStyle(this.DOM.el).getPropertyValue('--columns');
         // Calculate cell size
-        this.cellSize =  winsize.width/this.columns;
+        this.cellSize = winsize.width / this.columns;
         // Calculate number of rows
-        this.rows = Math.ceil(winsize.height/this.cellSize);
+        this.rows = Math.ceil(winsize.height / this.cellSize);
         // Calculate the total amount of cells (rows x columns)
         this.cellsTotal = this.rows * this.columns;
         // Insert [this.cellsTotal] cursor__inner-box elements inside the .cursor__inner element
         let innerStr = '';
         // Erase contents
         this.DOM.inner.innerHTML = '';
-        
+
         const customColorsAttr = this.DOM.el.getAttribute('data-custom-colors');
         let customColorsArr;
         let customColorsTotal = 0;
-        if ( customColorsAttr ) {
+        if (customColorsAttr) {
             customColorsArr = this.DOM.el.getAttribute('data-custom-colors').split(',');
             customColorsTotal = customColorsArr ? customColorsArr.length : 0;
         }
         for (let i = 0; i < this.cellsTotal; ++i) {
-            innerStr += customColorsTotal === 0 ?  
+            innerStr += customColorsTotal === 0 ?
                 '<div class="cursor__inner-box"></div>' :
-                `<div style="transform: scale(${gsap.utils.random(0.5,2)}); background:${customColorsArr[Math.round(gsap.utils.random(0,customColorsTotal-1))]}" class="cursor__inner-box"></div>`;
+                `<div style="transform: scale(${gsap.utils.random(0.5, 2)}); background:${customColorsArr[Math.round(gsap.utils.random(0, customColorsTotal - 1))]}" class="cursor__inner-box"></div>`;
         }
         this.DOM.inner.innerHTML = innerStr;
         this.DOM.cells = this.DOM.inner.children;
@@ -133,7 +133,7 @@ export class GooCursor {
         const rowIndex = Math.floor(mousepos.y / this.cellSize);
         const cellIndex = rowIndex * this.columns + columnIndex;
 
-        if ( cellIndex >= this.cellsTotal || cellIndex < 0 ) {
+        if (cellIndex >= this.cellsTotal || cellIndex < 0) {
             console.error('Cell index out of bounds');
             return null;
         }
