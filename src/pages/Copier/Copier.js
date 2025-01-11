@@ -36,7 +36,8 @@ const Copier = () => {
     // const [file, setFile] = useState(null);
     const [receivedFile, setReceivedFile] = useState('');
 
-    const dataServer = "wss://copier-ws-production.up.railway.app";
+    // const dataServer = "wss://copier-ws-production.up.railway.app";
+    const dataServer = "wss://lean-secret-spruce.glitch.me";
     const fileServer = "wss://lean-secret-spruce.glitch.me";
 
     const { sendMessage: sendTextMessage, lastMessage, readyState: dataReadyState } = useWebSocket(dataServer, {
