@@ -19,7 +19,6 @@ export default class Sketch {
         this.renderer.setSize(this.width, this.height);
         this.renderer.setClearColor(0x000000, 1);
         this.renderer.physicallyCorrectLights = true;
-        this.renderer.outputEncoding = THREE.sRGBEncoding;
 
         this.container.appendChild(this.renderer.domElement)
 
