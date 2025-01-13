@@ -780,7 +780,7 @@ class Sketch {
         if (!this.isPlaying) return;
         this.time += 0.05;
         this.materials.forEach((m)=>{
-            // m.uniforms.time.value = this.time * 0.05;
+            m.uniforms.time.value = this.time * 0.05;
             // m.uniforms.time.value = this.time * 0.01;
             m.uniforms.uMouse.value = this.point;
         });
