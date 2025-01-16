@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-
+import Galaxy from '../Galaxy/Galaxy.js'
 import { Navbar, Footer, Landing, About, Skills, Testimonials, Blog, Education, Experience, Contacts, Projects, Services, Achievement } from '../../components'
 import { headerData } from '../../data/headerData'
 
@@ -11,8 +11,8 @@ function Main() {
                 <title>{headerData.name} - Porfolio</title>
             </Helmet>
 
-            <Navbar />        
-            <Landing />
+            <Navbar />
+            <Galaxy />
             <About />
             <Education />
             <Skills />

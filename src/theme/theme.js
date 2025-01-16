@@ -1,10 +1,10 @@
 /* eslint-disable */
-import { 
-    blueThemegirl, blueThemeboy, bwThemeboy, bwThemegirl, greenThemeboy, greenThemegirl, orangeThemeboy, 
+import {
+    blueThemegirl, blueThemeboy, bwThemeboy, bwThemegirl, greenThemeboy, greenThemegirl, orangeThemeboy,
     orangeThemegirl, pinkThemeboy, pinkThemegirl, purpleThemeboy, purpleThemegirl, redThemeboy, redThemegirl, yellowThemeboy,
-    yellowThemegirl,eduBlack,eduBlue,eduGreen,eduOrange,eduPink,eduPurple,eduRed,eduYellow,expBlack,expBlue,expGreen,expOrange,
-    expPink,expPurple,expRed,expYellow,contactsBlack,contactsBlue,contactsGreen,contactsOrange,contactsPink,contactsPurple,
-    contactsRed,contactsYellow
+    yellowThemegirl, eduBlack, eduBlue, eduGreen, eduOrange, eduPink, eduPurple, eduRed, eduYellow, expBlack, expBlue, expGreen, expOrange,
+    expPink, expPurple, expRed, expYellow, contactsBlack, contactsBlue, contactsGreen, contactsOrange, contactsPink, contactsPurple,
+    contactsRed, contactsYellow
 } from './images'
 
 
@@ -123,9 +123,9 @@ export const blueThemeDark = {
     primary80: '#545fc4cc',
     primary50: '#545fc480',
     primary30: '#545fc44d',
-    secondary: '#212121',
-    secondary70: '#212121b3',
-    secondary50: '#21212180',
+    secondary: '#000000',
+    secondary70: '#000000',
+    secondary50: '#000000',
     tertiary: '#eaeaea',
     tertiary80: '#eaeaeacc',
     tertiary70: '#eaeaeab3',

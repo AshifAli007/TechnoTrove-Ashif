@@ -1,0 +1,19 @@
+.arrow{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 0;
+    bottom: 5%;
+    z-index: 1000;
+    cursor: pointer;
+    background: transparent;
+}
+
+#galaxy-container{
+    overflow: auto;
+    background-color: black;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+  }

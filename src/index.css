@@ -12,6 +12,12 @@
   src: url('./assets/fonts/Bestermind/BestermindRegular.ttf') format('embedded-opentype'), 
        url('./assets/fonts/Bestermind/BestermindRegular.ttf')  format('truetype'), 
 }
+@font-face {
+  font-family: 'font1';
+  src: url('./assets/fonts/font1/font1.ttf'); 
+  /* src: url('./assets/fonts/font1/font1.ttf') format('embedded-opentype'), 
+       url('./assets/fonts/font1/font1.ttf')  format('truetype'),  */
+}
 
 * {
   margin: 0;
