@@ -18,9 +18,9 @@
   /* src: url('./assets/fonts/font1/font1.ttf') format('embedded-opentype'), 
        url('./assets/fonts/font1/font1.ttf')  format('truetype'),  */
 }
-html{
+/* html{
   width: 0;
-}
+} */
 * {
   margin: 0;
   box-sizing: border-box;
