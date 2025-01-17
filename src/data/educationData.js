@@ -10,7 +10,7 @@ export const educationData = [
         id: 2,
         institution: 'Univesity of Delhi',
         course: 'Bachelor of Science in Computer Science',
-        startYear: '2021',
-        endYear: '2018'
+        startYear: '2017',
+        endYear: '2020'
     }
 ]

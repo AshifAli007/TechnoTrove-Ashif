@@ -53,7 +53,7 @@
 }
 
 .about-description > p {
-    font-size: 1.25rem;
+  font-size: 1rem;
     color: #e0d9d9;
     font-family: var(--primaryFont);
 }
@@ -77,7 +77,7 @@
       margin-bottom: 30px;
     }
     .about-description > p {
-      font-size: 1.15rem;
+      font-size: 0.8rem;
     }
 
     .about-img>img {
