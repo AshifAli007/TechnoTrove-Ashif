@@ -53,9 +53,12 @@ function Navbar() {
         <>
             <div className='navbar' ref={container}>
                 <div className='navbar--container'>
-                    <h1 ref={nameRef}>
-                        Mohammad Ashif
-                    </h1>
+                    <a href='https://read.cv/ashifdesigns' target='_blank' rel='noreferrer'>
+                        <h1 ref={nameRef}>
+                            Mohammad Ashif
+                        </h1>
+                    </a>
+
                     <h4 ref={positionRef}>
                         Software Engineer
                     </h4>
@@ -65,7 +68,7 @@ function Navbar() {
             <div >
                 <ul className='links'>
                     <li>
-                        <a href={Resume}>
+                        <a href={Resume} target='_blank' rel='noreferrer'>
                             <span className="line"></span>
                             <span>Resume</span>
                         </a>
