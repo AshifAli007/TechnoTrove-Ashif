@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // import fragment from '../shaders/fragment.glsl';
@@ -10,6 +10,8 @@ import Arrow from '../../assets/arrow.svg';
 import './Galaxy.css';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ThemeContext } from '../../contexts/ThemeContext';
+
 
 
 const vertex = `
@@ -311,17 +313,29 @@ gsap.registerPlugin(useGSAP);
 const Galaxy = () => {
   const containerRef = useRef();
   const galaxyContainer = useRef();
+  const { theme } = useContext(ThemeContext);
+
   useGSAP(() => {
-    gsap.from("#galaxy-container", { y: '100%', duration: 2.5, ease: "back.out(0.5)", });
-    gsap.from(".arrow", { y: '-100%', duration: 2.5, ease: "back.out(0.5)", delay: 2.5, opacity: 0 });
+    gsap.from("#galaxy-container", { y: '30%', duration: 2.5, ease: "back.out(0.5)", delay: 1.5 });
+    gsap.from(".arrow", { y: '-100%', duration: 2.5, ease: "back.out(0.5)", delay: 4, opacity: 0 });
 
   }, { scope: galaxyContainer });
 
   useEffect(() => {
     const container = containerRef.current;
+
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.001, 1000);
-    camera.position.set(2, 1, 3);
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.001, 1000);
+    camera.position.set(10, 1, 3);
+    gsap.to(camera.position, {
+      x: 2,
+      duration: 2, // Duration of the animation in seconds
+      ease: 'power2.inOut', // Easing function,
+      delay: 2,
+      onUpdate: () => {
+        camera.updateProjectionMatrix(); // Update the camera projection matrix
+      }
+    });
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -394,7 +408,8 @@ const Galaxy = () => {
     const opts = [
       { min_radius: 0.7, max_radius: 1.5, color: '#f7b373', size: 1, uAmp: 1 },
       { min_radius: 0.4, max_radius: 1.5, color: '#88b3ce', size: 0.7, uAmp: 3 },
-      { min_radius: 1.0, max_radius: 2.0, color: '#89d3ce', size: 0.9, uAmp: 4 },
+      // { min_radius: 1.0, max_radius: 2.0, color: '#89d3ce', size: 0.9, uAmp: 4 },
+      { min_radius: 1.0, max_radius: 2.0, color: theme.primary, size: 0.9, uAmp: 4 },
     ];
 
     opts.forEach(addObject);
@@ -426,6 +441,7 @@ const Galaxy = () => {
         material.uniforms.time.value += 0.001;
         material.uniforms.uMouse.value.copy(point);
       });
+      controls.update();
       renderer.render(scene, camera);
     }
 
@@ -453,7 +469,7 @@ const Galaxy = () => {
         onClick={() => {
           document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
         }}
-        className="arrow" style={{ width: '100px', height: '100px' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+        className="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
         <path style={{ fill: 'white' }} d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z" />
       </svg>
       <div id="galaxy-container" ref={containerRef} style={{ width: '100vw', height: '100vh' }}>

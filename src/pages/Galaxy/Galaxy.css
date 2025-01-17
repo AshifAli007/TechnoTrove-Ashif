@@ -1,12 +1,16 @@
 .arrow{
     position: absolute;
-    width: 100px;
-    height: 100px;
-    right: 0;
+    width: 50px;
+    height: 50px;
+    right: 2%;
     bottom: 5%;
-    z-index: 1000;
+    z-index: 100;
     cursor: pointer;
     background: transparent;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+.arrow:hover{
+    transform: scaleY(1.5);
 }
 
 #galaxy-container{

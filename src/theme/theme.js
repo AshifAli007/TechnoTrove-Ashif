@@ -117,12 +117,12 @@ export const blueThemeLight = {
 }
 export const blueThemeDark = {
     type: 'dark',
-    primary: '#545fc4',
-    primary400: '#6e76c7',
-    primary600: '#3644c9',
-    primary80: '#545fc4cc',
-    primary50: '#545fc480',
-    primary30: '#545fc44d',
+    primary: '#89d3ce',          // Base color
+    primary400: '#a3e0da',       // Lighter shade
+    primary600: '#6fb6b0',       // Darker shade
+    primary80: '#89d3cecc',      // Base color with 80% opacity
+    primary50: '#89d3ce80',      // Base color with 50% opacity
+    primary30: '#89d3ce4d',
     secondary: '#000000',
     secondary70: '#000000',
     secondary50: '#000000',
@@ -131,10 +131,10 @@ export const blueThemeDark = {
     tertiary70: '#eaeaeab3',
     tertiary50: '#eaeaea80',
     aboutimg1: blueThemeboy,
-    aboutimg2: blueThemegirl,
-    eduimg: eduBlue,
-    expimg: expBlue,
-    contactsimg: contactsBlue
+    aboutimg2: bwThemegirl,
+    eduimg: eduBlack,
+    expimg: expBlack,
+    contactsimg: contactsBlack
 }
 
 export const redThemeLight = {

@@ -4,6 +4,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import axios from 'axios';
 import isEmail from 'validator/lib/isEmail';
 import { makeStyles } from '@material-ui/core/styles';
+import Footer from '../../components/Footer/Footer';
 import {
     FaTwitter,
     FaLinkedinIn,
@@ -427,11 +428,8 @@ function Contacts() {
                     </div>
                 </div>
             </div>
-            <img
-                src={theme.contactsimg}
-                alt='contacts'
-                className='contacts--img'
-            />
+            <Footer />
+
         </div>
     );
 }

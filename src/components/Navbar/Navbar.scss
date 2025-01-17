@@ -8,14 +8,33 @@
     justify-content: center;
     width: 100%;
 }
-
+.char{
+    display: inline-block;
+}
 .navbar--container {
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     padding: 0 3rem;
     margin-top: 1rem;
+    h1{
+        // font-family: 'BestermindRegular';
+        font-family: "kallisto", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        color: #89d3ce;
+        font-size: 2.5rem;
+        user-select: none;
+        
+    }
+    h4{
+        color: white;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+    }
 }
 .links{
     display: flex;
@@ -25,7 +44,7 @@
     color: white;
     position: absolute;
     top: 50%;
-    z-index: 1000;
+    z-index: 100;
     background: transparent;
     list-style: none;
     li, a, span{
@@ -64,13 +83,6 @@
             width: 4rem;
         }
     }
-}
-
-.navbar--container > h1 {
-    font-family: 'BestermindRegular';
-    color: var(--primary-2);
-    font-size: 2.5rem;
-    user-select: none;
 }
 
 .navLink--container {

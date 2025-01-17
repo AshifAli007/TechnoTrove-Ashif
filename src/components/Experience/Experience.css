@@ -88,7 +88,9 @@
 }
 
 .experience-image > img {
-    width: 100%;
+    position: relative;
+    top: 40px;
+    width: 115%;
     pointer-events: none;
 }
 

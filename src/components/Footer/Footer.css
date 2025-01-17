@@ -5,14 +5,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    bottom: 0;
 }
 
 .footer p {
-    font-weight: 500;
-    font-family: var(--primaryFont);
-    font-size: 18px;
+
+    font-family: "kallisto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .footer p span {
-    font-size: 24px;
+    font-size: 30px;
 }
