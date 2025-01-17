@@ -44,6 +44,11 @@ function Navbar() {
 
     }, {});
 
+    const handleScrollToAbout = (event) => {
+        event.preventDefault();
+        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
         <>
             <div className='navbar' ref={container}>
@@ -66,9 +71,11 @@ function Navbar() {
                         </a>
                     </li>
                     <li>
-                        <a href={Resume}>
+                        <a href="#about" onClick={handleScrollToAbout}>
                             <span className="line"></span>
-                            <span>About</span>
+                            <span onClick={() => {
+                                document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                            }}>About</span>
                         </a>
                     </li>
                 </ul>
