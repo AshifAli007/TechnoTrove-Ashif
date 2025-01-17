@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import './Navbar.scss';
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Resume from '../../assets/pdf/resume.pdf';
 
 
 gsap.registerPlugin(useGSAP);
@@ -59,13 +60,13 @@ function Navbar() {
             <div >
                 <ul className='links'>
                     <li>
-                        <a href='#'>
+                        <a href={Resume}>
                             <span className="line"></span>
-                            <span>Experience</span>
+                            <span>Resume</span>
                         </a>
                     </li>
                     <li>
-                        <a href='#'>
+                        <a href={Resume}>
                             <span className="line"></span>
                             <span>About</span>
                         </a>

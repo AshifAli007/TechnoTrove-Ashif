@@ -1,16 +1,15 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import { Helmet } from 'react-helmet'
 import Galaxy from '../Galaxy/Galaxy.js'
-import { Navbar, Footer, Landing, About, Skills, Testimonials, Blog, Education, Experience, Contacts, Projects, Services, Achievement, PreLoader } from '../../components'
+import { Navbar, About, Skills, Testimonials, Blog, Education, Experience, Contacts, Projects, Services, Achievement, PreLoader } from '../../components'
 import { headerData } from '../../data/headerData'
 
 function Main() {
-    const [loading, setLoading] = useState(true)
     return (
         <div>
 
 
-            <PreLoader setLoading={setLoading} />
+            <PreLoader />
             <Helmet>
                 <title>{headerData.name} - Porfolio</title>
             </Helmet>

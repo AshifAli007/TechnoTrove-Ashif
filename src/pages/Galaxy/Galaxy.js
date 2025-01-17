@@ -1,12 +1,8 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-// import fragment from '../shaders/fragment.glsl';
-// import vertex from '../shaders/vertex.glsl';
+
 import particleTexture from './particle.webp';
-import { Navbar, Footer, Landing, About, Skills, Testimonials, Blog, Education, Experience, Contacts, Projects, Services, Achievement } from '../../components'
-import { headerData } from '../../data/headerData';
-import Arrow from '../../assets/arrow.svg';
 import './Galaxy.css';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -461,7 +457,7 @@ const Galaxy = () => {
       renderer.dispose();
       scene.clear();
     };
-  }, []);
+  }, [theme.primary]);
 
   return (
     <div className='galaxy-container' ref={galaxyContainer}>
