@@ -20,7 +20,11 @@ function About() {
             <div className="about-body">
                 <div className="about-description">
                     <h2 style={{ color: theme.primary }}>{aboutData.title}</h2>
+                    <p style={{ color: theme.tertiary80 }}>{aboutData.description1}</p>
+                    <br />
                     <p style={{ color: theme.tertiary80 }}>{aboutData.description2}</p>
+                    <br />
+                    <p style={{ color: theme.tertiary80 }}>{aboutData.description3}</p>
                 </div>
                 <div className="about-img">
                     <AtomIcon style={{ fill: 'white', width: '140%', height: '100%' }} />
