@@ -53,7 +53,7 @@ function Navbar() {
         <>
             <div className='navbar' ref={container}>
                 <div className='navbar--container'>
-                    <a href='https://read.cv/ashifdesigns' target='_blank' rel='noreferrer'>
+                    <a href='https://333302723895496704.hello.cv' target='_blank' rel='noreferrer'>
                         <h1 ref={nameRef}>
                             Mohammad Ashif
                         </h1>
