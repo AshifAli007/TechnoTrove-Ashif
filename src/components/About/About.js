@@ -5,7 +5,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { aboutData } from '../../data/aboutData'
 // import atom from '../../assets/svg/atom.svg'
 import { ReactComponent as AtomIcon } from '../../assets/svg/atom1.svg'; // Import SVG as a component
-
+import profileImg from '../../assets/about2.png';
 
 function About() {
 
@@ -27,8 +27,11 @@ function About() {
                     <p style={{ color: theme.tertiary80 }}>{aboutData.description3}</p>
                 </div>
                 <div className="about-img">
-                    <AtomIcon style={{ fill: 'white', width: '140%', height: '100%' }} />
-
+                    <img
+                        src={profileImg}
+                        alt="About"
+                        style={{ maxWidth: '200px', width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '12px' }}
+                    />
                 </div>
             </div>
         </div>

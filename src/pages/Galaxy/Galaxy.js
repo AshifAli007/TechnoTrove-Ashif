@@ -4,8 +4,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import particleTexture from './particle.webp';
 import './Galaxy.css';
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ThemeContext } from '../../contexts/ThemeContext';
 
 
@@ -304,34 +302,34 @@ void main() {
 
 `
 
-gsap.registerPlugin(useGSAP);
 
 const Galaxy = () => {
   const containerRef = useRef();
   const galaxyContainer = useRef();
   const { theme } = useContext(ThemeContext);
 
-  useGSAP(() => {
-    gsap.from("#galaxy-container", { y: '30%', duration: 2.5, ease: "back.out(0.5)", delay: 1.5 });
-    gsap.from(".arrow", { y: '-100%', duration: 2.5, ease: "back.out(0.5)", delay: 4, opacity: 0 });
+  // useGSAP(() => {
+  //   gsap.from("#galaxy-container", { y: '30%', duration: 2.5, ease: "back.out(0.5)", delay: 1.5 });
+  //   gsap.from(".arrow", { y: '-100%', duration: 2.5, ease: "back.out(0.5)", delay: 4, opacity: 0 });
 
-  }, { scope: galaxyContainer });
+  // }, { scope: galaxyContainer });
 
   useEffect(() => {
     const container = containerRef.current;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.001, 1000);
-    camera.position.set(10, 1, 3);
-    gsap.to(camera.position, {
-      x: 2,
-      duration: 2, // Duration of the animation in seconds
-      ease: 'power2.inOut', // Easing function,
-      delay: 2,
-      onUpdate: () => {
-        camera.updateProjectionMatrix(); // Update the camera projection matrix
-      }
-    });
+    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.001, 1000);
+    console.log(camera.position);
+    camera.position.set(1, 1, 3);
+    // gsap.to(camera.position, {
+    //   x: 2,
+    //   duration: 2, // Duration of the animation in seconds
+    //   ease: 'power2.inOut', // Easing function,
+    //   delay: 2,
+    //   onUpdate: () => {
+    //     camera.updateProjectionMatrix(); // Update the camera projection matrix
+    //   }
+    // });
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -341,6 +339,7 @@ const Galaxy = () => {
     container.appendChild(renderer.domElement);
 
     const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
 
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();

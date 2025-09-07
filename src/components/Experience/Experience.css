@@ -13,18 +13,18 @@
 .experience-description {
     width: 100%;
     flex: 0.65;
-    padding: 2rem;
+    padding: 1.4rem; /* 2rem -> 1.4rem */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    margin-right: 2rem;
+    margin-right: 1.4rem; /* 2rem -> 1.4rem */
 }
 
 .experience-description > h1 {
-    font-size: 3.5rem;
+    font-size: 2.45rem; /* 3.5rem -> 2.45rem */
     font-family: var(--primaryFont);
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem; /* 2rem -> 1.4rem */
 }
 
 .experience-card {
@@ -33,17 +33,17 @@
     align-items:flex-start;
     justify-content: flex-start;
     width: 90%;
-    height: 140px;
-    padding: 1.5rem;
-    border-radius: 20px;
-    margin-bottom: 1.5rem;
+    height: 98px; /* 140px -> 98px */
+    padding: 1.05rem; /* 1.5rem -> 1.05rem */
+    border-radius: 14px; /* 20px -> 14px */
+    margin-bottom: 1.05rem; /* 1.5rem -> 1.05rem */
     transition: background-color 200ms ease-in-out;
 }
 
 .expcard-img {
     border-radius: 50%;
-    width: 55px;
-    height: 55px;
+    width: 38.5px;  /* 55px -> 38.5px */
+    height: 38.5px; /* 55px -> 38.5px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,52 +51,48 @@
 }
 
 .expcard-img > img {
-    width: 36px;
+    width: 25.2px; /* 36px -> 25.2px */
     pointer-events: none;
 }
 
 .experience-details {
-    margin-left: 0.6rem;
+    margin-left: 0.42rem; /* 0.6rem -> 0.42rem */
 }
 
 .experience-details > h6 {
     font-family: var(--primaryFont);
-    font-size: 0.85rem;
+    font-size: 0.595rem; /* 0.85rem -> 0.595rem */
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem; /* 0.5rem -> 0.35rem */
 }
 
 .experience-details > h4 {
     font-family: var(--primaryFont);
-    font-size: 1.225rem;
+    font-size: 0.8575rem; /* 1.225rem -> 0.8575rem */
     font-weight: 600;
 }
 
 .experience-details > h5 {
     font-family: var(--primaryFont);
-    font-size: 1.15rem;
+    font-size: 0.805rem; /* 1.15rem -> 0.805rem */
     font-weight: 600;
 }
 
 .experience-image {
     box-sizing: border-box;
-    padding: 1rem;
-    flex: 0.35;
-    margin-left: 7%;
-    margin-top: 1rem;
+    padding: 0.7rem; /* 1rem -> 0.7rem */
+    flex: 0.35; /* keep ratio */
+    margin-left: 4.9%; /* 7% -> 4.9% */
+    margin-top: 0.7rem; /* 1rem -> 0.7rem */
     pointer-events: none;
 }
 
 .experience-image > img {
     position: relative;
-    top: 40px;
-    width: 115%;
+    top: 28px;   /* 40px -> 28px */
+    width: 80.5%; /* 115% -> 80.5% */
     pointer-events: none;
 }
-
-
-
-
 
 
 @media (min-width: 992px) and (max-width: 1380px) {
@@ -116,69 +112,63 @@
         margin: auto;
     }    
     .experience-description > h1{
-        font-size: 3.2rem;
+        font-size: 2.24rem;
     }
     .experience-card {
         width: 100%;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
+        padding: 1.05rem;
+        margin-bottom: 1.05rem;
     }
 }
 
 @media screen and (max-width: 800px) {
     .experience-description > h1{
-        font-size: 3rem;
-        margin-bottom: 2rem;
+        font-size: 2.1rem;
+        margin-bottom: 1.4rem;
         align-self: center;
     }
     .experience-description {
-        padding: 1rem;
+        padding: 0.7rem;
     }
     .experience-card {
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        height: 130px;
+        padding: 0.7rem;
+        margin-bottom: 1.05rem;
+        height: 91px;
     }
     .expcard-img {
         border-radius: 50%;
-        width: 45px;
-        height: 45px;
+        width: 31.5px;
+        height: 31.5px;
     }
-    
     .expcard-img > img {
-        width: 30px;
+        width: 21px;
     }
     .experience-details > h6 {
-        font-size: 0.85rem;
-        margin-bottom: 0.45rem;
+        font-size: 0.595rem;
+        margin-bottom: 0.315rem;
     }
-    
     .experience-details > h4 {
-        font-size: 1.125rem;
+        font-size: 0.7875rem;
         line-height: 126%;
     }
-    
     .experience-details > h5 {
-        font-size: 1.05rem;
+        font-size: 0.735rem;
         line-height: 126%;
     }
 }
 
 @media screen and (max-width: 600px) {
     .experience-description > h1{
-        font-size: 2.5rem;
+        font-size: 1.75rem;
     }
 }
 
 @media screen and (max-width: 400px) {
-
 }
   
 @media only screen and (min-device-width: 320px) and (max-device-width: 
   480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
-
 }
-
 
 @media only screen and (device-width: 768px) {
 

@@ -1,6 +1,6 @@
-import React,{ useContext} from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { projectsData } from '../../data/projectsData'
@@ -13,19 +13,19 @@ function Projects() {
 
     const { theme } = useContext(ThemeContext);
 
-    
+
     const useStyles = makeStyles(() => ({
-        viewAllBtn : {
-            color: theme.tertiary, 
+        viewAllBtn: {
+            color: theme.tertiary,
             backgroundColor: theme.primary,
             transition: 'color 0.2s',
             "&:hover": {
-                color: theme.secondary, 
+                color: theme.secondary,
                 backgroundColor: theme.primary,
             }
         },
-        viewArr : {
-            color: theme.tertiary, 
+        viewArr: {
+            color: theme.tertiary,
             backgroundColor: theme.secondary70,
             width: '40px',
             height: '40px',
@@ -35,7 +35,7 @@ function Projects() {
             cursor: 'pointer',
             transition: 'background-color 0.2s',
             "&:hover": {
-                color: theme.tertiary, 
+                color: theme.tertiary,
                 backgroundColor: theme.secondary,
             }
         },
@@ -46,9 +46,9 @@ function Projects() {
     return (
         <>
             {projectsData.length > 0 && (
-                <div className="projects" id="projects" style={{backgroundColor: theme.secondary}}>
+                <div className="projects" id="projects" style={{ backgroundColor: theme.secondary }}>
                     <div className="projects--header">
-                        <h1 style={{color: theme.primary}}>Projects Showcase</h1>
+                        <h1 style={{ color: theme.primary }}>Projects Showcase</h1>
                     </div>
                     <div className="projects--body">
                         <div className="projects--bodyContainer">
@@ -65,7 +65,7 @@ function Projects() {
                                     image={project.image}
                                 />
                             ))}
-                        </div> 
+                        </div>
 
                         {projectsData.length > 3 && (
                             <div className="projects--viewAll">

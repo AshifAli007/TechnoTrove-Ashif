@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // import { ThemeContext } from './contexts/ThemeContext';
 import { Main, BlogPage, ProjectPage, Copier, Galaxy } from './pages'
@@ -9,23 +9,20 @@ import ScrollToTop from './utils/ScrollToTop'
 import './App.css'
 
 function App() {
-
   // const { theme } = useContext(ThemeContext);
-
 
   return (
     <div className="app">
       <Router>
         <ScrollToTop />
-        <Switch>
-          <Route path="/" exact component={Main} />
-          <Route path="/blog" exact component={BlogPage} />
-          <Route path="/projects" exact component={ProjectPage} />
-          <Route path="/copier" exact component={Copier} />
-          <Route path="/galaxy" exact component={Galaxy} />
-
-          <Redirect to="/" />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/projects" element={<ProjectPage />} />
+          <Route path="/copier" element={<Copier />} />
+          <Route path="/galaxy" element={<Galaxy />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       </Router>
       <BackToTop />
     </div>

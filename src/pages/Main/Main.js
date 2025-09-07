@@ -9,7 +9,7 @@ function Main() {
         <div>
 
 
-            <PreLoader />
+            {/* <PreLoader /> */}
             <Helmet>
                 <title>{headerData.name} - Porfolio</title>
             </Helmet>

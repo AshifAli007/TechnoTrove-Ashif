@@ -34,7 +34,7 @@ function Education() {
                         />
                     ))}
                 </div>
-                <p>{splitText(text)}</p>
+                {/* <p>{splitText(text)}</p> */}
             </div>
         </div>
     )

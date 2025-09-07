@@ -1,13 +1,6 @@
 import React, { useRef } from 'react';
 import './Navbar.scss';
-
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import Resume from '../../assets/pdf/resume.pdf';
-
-
-gsap.registerPlugin(useGSAP);
-
 
 
 function Navbar() {
@@ -15,34 +8,6 @@ function Navbar() {
     const nameRef = useRef();
     const positionRef = useRef();
 
-    useGSAP(() => {
-        const splitText = (element) => {
-            const text = element.innerText;
-            element.innerHTML = text.split('').map(char => {
-                if (char === ' ') {
-                    return `<span class="char">&nbsp;</span>`;
-                }
-                return `<span class="char">${char}</span>`;
-            }).join('');
-        };
-        splitText(nameRef.current);
-        splitText(positionRef.current);
-
-        gsap.from('.char', {
-            x: '-50%',
-            opacity: 0,
-            duration: 10,
-            ease: 'power2.out',
-            stagger: 0.05,
-            delay: 4
-        });
-
-
-
-
-        gsap.from(".links", { x: '-50%', duration: 1.5, opacity: 0, delay: 4, ease: "power2.inOut" });
-
-    }, {});
 
     const handleScrollToAbout = (event) => {
         event.preventDefault();
